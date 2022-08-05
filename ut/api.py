@@ -1,4 +1,4 @@
-from utils.http_methods import Http_methods
+from ut.http_methods import Http_methods
 """ Методы для тестирования Калькулятора на localhost """
 
 base_url = "http://localhost:5413"  # базовый URL
