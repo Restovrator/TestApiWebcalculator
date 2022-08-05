@@ -1,0 +1,20 @@
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.fontFamily": " monospace, Menlo, Monaco, Courier New",
+    "python.testing.unittestEnabled": false,
+    "python.testing.cwd": ".",
+    "terminal.integrated.inheritEnv": true,
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.defaultInterpreterPath": 
+    "~/anaconda3/envs/mycurrentenv/bin/python",
+    "pythonTestExplorer.testFramework": "pytest",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+       "tests"
+    ],
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+      }
+}
