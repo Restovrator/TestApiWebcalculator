@@ -1,5 +1,6 @@
 from ut.http_methods import Http_methods
 
+
 """ Создание базового URL адреса для подключение к хосту """
 base_host = "http://localhost"
 base_port = 17678
@@ -12,7 +13,8 @@ else:
     base_url = manual_host + ':' + str(manual_port)
     print(base_url)
 
-api = "/api"  # ресурс
+api = "/api"
+
 json_date = {
     "x": 4,
     "y": 2
