@@ -1,7 +1,6 @@
 from requests import Response
 from ut.api import web_calc_api
 from ut.checking import Checking
-import threading
 
 class Test_calc():
 
@@ -19,9 +18,26 @@ class Test_calc():
         result_option: Response = web_calc_api.option_()
         Checking.check_status_code(result_option, 200)
 
-    def test_check_calc(self):
+    def test_check_addition(self):
         print("\n\nМетод: POST")
-        result_post: Response = web_calc_api.test_calc_int()
+        result_post: Response = web_calc_api.test_calc_int('5+2')
         Checking.check_json_value(result_post, 'statusCode', 0, 'statusMessage', 'result')
         Checking.check_status_code(result_post, 200)
 
+    def test_check_multiplication(self):
+        print("\n\nМетод: POST")
+        result_post: Response = web_calc_api.test_calc_int('5*222222222222')
+        Checking.check_json_value(result_post, 'statusCode', 0, 'statusMessage', 'result')
+        Checking.check_status_code(result_post, 200)
+
+    def test_check_division(self):
+        print("\n\nМетод: POST")
+        result_post: Response = web_calc_api.test_calc_int('5/2')
+        Checking.check_json_value(result_post, 'statusCode', 0, 'statusMessage', 'result')
+        Checking.check_status_code(result_post, 200)
+
+    def test_check_remainder(self):
+        print("\n\nМетод: POST")
+        result_post: Response = web_calc_api.test_calc_int('5%2')
+        Checking.check_json_value(result_post, 'statusCode', 0, 'statusMessage', 'result')
+        Checking.check_status_code(result_post, 200)

@@ -1,6 +1,5 @@
 from ut.http_methods import Http_methods
 
-
 """ Создание базового URL адреса для подключение к хосту """
 base_host = "http://localhost"
 base_port = 17678
@@ -14,11 +13,6 @@ else:
     print(base_url)
 
 api = "/api"
-
-json_date = {
-    "x": 4,
-    "y": 2
-}
 
 """ Методы для тестирования Калькулятора на localhost """
 
@@ -37,12 +31,30 @@ class web_calc_api():
     """ Метод для сложения двух целых чисел """
 
     @staticmethod
-    def test_calc_int():
-        post_resource = "/addition"  # Сложение
+    def test_calc_int(operation):
+        global post_resource
+        allowed = "+*/%"
+        json_date = {}
+        for sign in allowed:
+            if sign in operation:
+                left, right = operation.split(sign)
+                left, right = int(left), int(right)
+                json_date['x'] = left
+                json_date['y'] = right
+                if sign == '+':
+                    post_resource = "/addition"
+                elif sign == '*':
+                    post_resource = "/multiplication"
+                elif sign == '/':
+                    post_resource = "/division"
+                elif sign == '%':
+                    post_resource = "/remainder"
+
         post_url = base_url + api + post_resource
-        print(post_url)
+        # print(post_url)
         result_post = Http_methods.post(post_url, json_date)
         print(result_post.json())
+
         return result_post
 
     """Метод для вывода заголовка"""
